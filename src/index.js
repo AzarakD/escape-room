@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { render } from 'react-dom';
 import { createAPI } from 'services/api';
-import App from 'components/app/app';
 import { reducer } from 'store/reducer';
 import { fetchQuests } from 'store/api-actions';
+import App from 'components/app/app';
 
 const api = createAPI();
 

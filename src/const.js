@@ -13,3 +13,8 @@ export const APIRoute = {
 export const ActionType = {
   LoadQuests: 'data/loadQuests',
 };
+
+export const PreviewSize = {
+  WIDTH: '344',
+  HEIGHT: '232',
+};

@@ -6,5 +6,4 @@ export const fetchQuests = () =>
     const { data } = await api.get(APIRoute.Quests);
 
     dispatch(loadQuests(data));
-    console.log(data);
   };
