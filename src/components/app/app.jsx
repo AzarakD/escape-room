@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { getIsQuestsLoaded } from 'store/selectors';
 import { ThemeProvider } from 'styled-components';
 import {
   Switch,
@@ -12,26 +14,34 @@ import { appTheme } from './common';
 import { AppRoute } from 'const';
 import * as S from './app.styled';
 
-const App = () => (
-  <ThemeProvider theme={appTheme}>
-    <S.GlobalStyle />
-    <Router>
-      <Switch>
-        <Route exact path={ AppRoute.Quest }>
-          <DetailedQuest />
-        </Route>
-        <Route exact path={ AppRoute.Contacts }>
-          <Contacts />
-        </Route>
-        <Route exact path={ AppRoute.Home }>
-          <Home />
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
-      </Switch>
-    </Router>
-  </ThemeProvider>
-);
+const App = () => {
+  const isQuestsLoaded = useSelector(getIsQuestsLoaded);
+
+  if (!isQuestsLoaded) {
+    return <>Loading...</>;
+  }
+
+  return (
+    <ThemeProvider theme={appTheme}>
+      <S.GlobalStyle />
+      <Router>
+        <Switch>
+          <Route exact path={ AppRoute.Quest }>
+            <DetailedQuest />
+          </Route>
+          <Route exact path={ AppRoute.Contacts }>
+            <Contacts />
+          </Route>
+          <Route exact path={ AppRoute.Home }>
+            <Home />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
+  );
+};
 
 export default App;

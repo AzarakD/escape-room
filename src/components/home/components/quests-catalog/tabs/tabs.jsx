@@ -1,55 +1,41 @@
-import { ReactComponent as IconAllQuests } from 'assets/img/icon-all-quests.svg';
-import { ReactComponent as IconAdventures } from 'assets/img/icon-adventures.svg';
-import { ReactComponent as IconHorrors } from 'assets/img/icon-horrors.svg';
-import { ReactComponent as IconMystic } from 'assets/img/icon-mystic.svg';
-import { ReactComponent as IconDetective } from 'assets/img/icon-detective.svg';
-import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
+import { getCurrentGenre } from 'store/selectors';
+import { changeGenre } from 'store/actions';
+import {
+  QuestGenre,
+  tabGenres,
+  icons,
+} from 'const';
 import * as S from './tabs.styled';
 
-const Tabs = () => (
-  <S.Tabs>
-    <S.TabItem>
-      <S.TabBtn isActive>
-        <IconAllQuests />
-        <S.TabTitle>Все квесты</S.TabTitle>
-      </S.TabBtn>
-    </S.TabItem>
+const genres = Object.values(QuestGenre);
 
-    <S.TabItem>
-      <S.TabBtn>
-        <IconAdventures />
-        <S.TabTitle>Приключения</S.TabTitle>
-      </S.TabBtn>
-    </S.TabItem>
+const Tabs = () => {
+  const currentGenre = useSelector(getCurrentGenre);
+  const dispatch = useDispatch();
 
-    <S.TabItem>
-      <S.TabBtn>
-        <IconHorrors />
-        <S.TabTitle>Ужасы</S.TabTitle>
-      </S.TabBtn>
-    </S.TabItem>
+  const onGenreClick = (index) => dispatch(changeGenre(genres[index]));
 
-    <S.TabItem>
-      <S.TabBtn>
-        <IconMystic />
-        <S.TabTitle>Мистика</S.TabTitle>
-      </S.TabBtn>
-    </S.TabItem>
-
-    <S.TabItem>
-      <S.TabBtn>
-        <IconDetective />
-        <S.TabTitle>Детектив</S.TabTitle>
-      </S.TabBtn>
-    </S.TabItem>
-
-    <S.TabItem>
-      <S.TabBtn>
-        <IconScifi />
-        <S.TabTitle>Sci-fi</S.TabTitle>
-      </S.TabBtn>
-    </S.TabItem>
-  </S.Tabs>
-);
+  return (
+    <S.Tabs>
+      {
+        icons.map((Icon, index) => (
+          <S.TabItem key={genres[index]}>
+            <S.TabBtn
+              isActive={currentGenre === genres[index]}
+              onClick={() => onGenreClick(index)}
+            >
+              <Icon />
+              <S.TabTitle>{tabGenres[index]}</S.TabTitle>
+            </S.TabBtn>
+          </S.TabItem>
+        ))
+      }
+    </S.Tabs>
+  );
+};
 
 export default Tabs;

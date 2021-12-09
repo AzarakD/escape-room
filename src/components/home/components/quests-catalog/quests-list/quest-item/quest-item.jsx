@@ -1,13 +1,10 @@
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
-import { PreviewSize } from 'const';
+import {
+  PreviewSize,
+  Difficulty,
+} from 'const';
 import * as S from './quest-item.styled';
-
-const Difficulty = {
-  hard: 'сложный',
-  medium: 'средний',
-  easy: 'простой',
-};
 
 const QuestItem = ({quest}) => {
   const {
