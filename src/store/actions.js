@@ -10,8 +10,3 @@ export const changeGenre = createAction(
   ActionType.ChangeGenre,
   (genre) => ({ payload: genre }),
 );
-
-export const filterQuests = createAction(
-  ActionType.FilterQuests,
-  (quests) => ({ payload: quests }),
-);

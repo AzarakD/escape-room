@@ -1,28 +1,37 @@
-import { useEffect } from 'react';
+import {
+  useEffect,
+  useState,
+} from 'react';
 import {
   useDispatch,
   useSelector,
 } from 'react-redux';
 import {
   getCurrentGenre,
-  getFilteredQuests,
   getQuests,
 } from 'store/selectors';
-import { filterQuests } from 'store/actions';
+import { changeGenre } from 'store/actions';
 import QuestItem from './quest-item/quest-item';
 import { filterQuestsByGenre } from 'utils';
+import { QuestGenre } from 'const';
 import * as S from './quests-list.styled';
 
 const QuestsList = () => {
+  const [filteredQuests, setFilteredQuests] = useState([]);
+
   const quests = useSelector(getQuests);
   const currentGenre = useSelector(getCurrentGenre);
-  const filteredQuests = useSelector(getFilteredQuests);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const payload = filterQuestsByGenre(quests, currentGenre);
-    dispatch(filterQuests(payload));
-  }, [currentGenre, dispatch, quests]);
+    if (!filteredQuests.length) {
+      dispatch(changeGenre(QuestGenre.all));
+    }
+  })
+
+  useEffect(() => {
+    setFilteredQuests(filterQuestsByGenre(quests, currentGenre));
+  }, [currentGenre, quests]);
 
   return (
     <S.QuestsList>

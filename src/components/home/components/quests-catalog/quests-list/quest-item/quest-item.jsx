@@ -1,13 +1,15 @@
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import {
-  PreviewSize,
+  AppRoute,
   Difficulty,
+  PreviewSize,
 } from 'const';
 import * as S from './quest-item.styled';
 
 const QuestItem = ({quest}) => {
   const {
+    id,
     title,
     previewImg,
     peopleCount,
@@ -16,7 +18,7 @@ const QuestItem = ({quest}) => {
 
   return (
     <S.QuestItem>
-      <S.QuestItemLink to="/quest">
+      <S.QuestItemLink to={AppRoute.Quest.replace(':id', String(id))}>
         <S.Quest>
           <S.QuestImage
             src={previewImg}

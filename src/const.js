@@ -16,7 +16,7 @@ export const icons = [
 
 export const AppRoute = {
   Home: '/',
-  Quest: '/quest',
+  Quest: '/quest/:id',
   Contacts: '/contacts',
 };
 
@@ -38,9 +38,9 @@ export const PreviewSize = {
 };
 
 export const Difficulty = {
-  'hard': 'сложный',
-  'medium': 'средний',
-  'easy': 'простой',
+  hard: 'сложный',
+  medium: 'средний',
+  easy: 'простой',
 };
 
 export const QuestGenre = {

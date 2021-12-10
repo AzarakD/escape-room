@@ -1,7 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
   changeGenre,
-  filterQuests,
   loadQuests,
 } from './actions';
 import { QuestGenre } from 'const';
@@ -10,7 +9,6 @@ const initialState = {
   quests: [],
   isQuestsLoaded: false,
   currentGenre: QuestGenre.all,
-  filteredQuests: [],
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -21,8 +19,5 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(changeGenre, (state, action) => {
       state.currentGenre = action.payload;
-    })
-    .addCase(filterQuests, (state, action) => {
-      state.filteredQuests = action.payload;
-    })
+    });
 });
