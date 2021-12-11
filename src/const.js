@@ -24,17 +24,25 @@ export const APIRoute = {
   Quests: '/quests',
   Quest: '/quests/:id',
   Orders: '/orders',
+  NotFound: '/404',
 };
 
 export const ActionType = {
   LoadQuests: 'data/loadQuests',
+  LoadQuest: 'data/loadQuest',
   ChangeGenre: 'app/changeGenre',
   FilterQuests: 'app/filterQuests',
+  RedirectToRoute: 'app/redirect',
 };
 
 export const PreviewSize = {
   WIDTH: '344',
   HEIGHT: '232',
+};
+
+export const CoverSize = {
+  WIDTH: "1366",
+  HEIGHT: "768",
 };
 
 export const Difficulty = {
@@ -44,12 +52,12 @@ export const Difficulty = {
 };
 
 export const QuestGenre = {
-  all: 'all',
-  adventures: 'adventures',
-  horror: 'horror',
-  mystic: 'mystic',
-  detective: 'detective',
-  sciFi: 'sci-fi',
+  All: 'all',
+  Adventures: 'adventures',
+  Horror: 'horror',
+  Mystic: 'mystic',
+  Detective: 'detective',
+  SciFi: 'sci-fi',
 };
 
 export const tabGenres = [

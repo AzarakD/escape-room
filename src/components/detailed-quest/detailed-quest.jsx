@@ -1,13 +1,23 @@
-import { useState } from 'react';
-import { MainLayout } from 'components/common/common';
+import {
+  useEffect,
+  useState,
+} from 'react';
+import { useParams } from 'react-router-dom';
+import {
+  useDispatch,
+  useSelector,
+} from 'react-redux';
+import { fetchQuest } from 'store/api-actions';
+import { getCurrentQuest } from 'store/selectors';
 import { ReactComponent as IconClock } from 'assets/img/icon-clock.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import { BookingModal } from './components/components';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getQuests } from 'store/selectors';
-import { Difficulty } from 'const';
+import { MainLayout } from 'components/common/common';
+import {
+  Difficulty,
+  CoverSize,
+} from 'const';
 import * as S from './detailed-quest.styled';
 
 const questGenre = {
@@ -20,10 +30,21 @@ const questGenre = {
 
 const DetailedQuest = () => {
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
-  const questList = useSelector(getQuests);
-  const {id} = useParams();
+  const currentQuest = useSelector(getCurrentQuest);
+  const dispatch = useDispatch();
 
-  const currentQuest = questList.filter((quest) => quest.id === Number(id))[0];
+  const {id} = useParams();
+  const questId = Number(id);
+
+  useEffect(() => {
+    if (currentQuest.id !== questId) {
+      dispatch(fetchQuest(questId));
+    }
+  });
+
+  if (currentQuest.id !== questId) {
+    return <>Loading...</>;
+  }
 
   const {
     coverImg,
@@ -45,8 +66,8 @@ const DetailedQuest = () => {
         <S.PageImage
           src={`/${coverImg}`}
           alt={`Квест ${title}`}
-          width="1366"
-          height="768"
+          width={CoverSize.WIDTH}
+          height={CoverSize.HEIGHT}
         />
         <S.PageContentWrapper>
           <S.PageHeading>

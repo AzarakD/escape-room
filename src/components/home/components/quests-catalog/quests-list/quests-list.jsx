@@ -25,7 +25,7 @@ const QuestsList = () => {
 
   useEffect(() => {
     if (!filteredQuests.length) {
-      dispatch(changeGenre(QuestGenre.all));
+      dispatch(changeGenre(QuestGenre.All));
     }
   })
 
