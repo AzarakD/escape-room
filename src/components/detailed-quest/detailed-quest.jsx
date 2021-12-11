@@ -14,6 +14,7 @@ import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import { BookingModal } from './components/components';
 import { MainLayout } from 'components/common/common';
+import Spinner from 'components/spinner/spinner';
 import {
   Difficulty,
   CoverSize,
@@ -43,7 +44,7 @@ const DetailedQuest = () => {
   });
 
   if (currentQuest.id !== questId) {
-    return <>Loading...</>;
+    return <Spinner />;
   }
 
   const {
