@@ -20,3 +20,12 @@ export const fetchQuest = (questId) =>
       dispatch(redirectToRoute(APIRoute.NotFound));
     }
   };
+
+export const sendBookingForm = (userInfo) =>
+  async (_dispatch, _getStore, api) => {
+    try {
+      await api.post(APIRoute.Orders, userInfo);
+    } catch {
+      console.log('server error');
+    }
+  };

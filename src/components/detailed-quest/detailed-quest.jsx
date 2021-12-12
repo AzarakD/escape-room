@@ -61,6 +61,10 @@ const DetailedQuest = () => {
     setIsBookingModalOpened(true);
   };
 
+  const onExitEvent = () => {
+    setIsBookingModalOpened(false);
+  };
+
   return (
     <MainLayout>
       <S.Main>
@@ -100,7 +104,7 @@ const DetailedQuest = () => {
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal />}
+        {isBookingModalOpened && <BookingModal onExitEvent={onExitEvent} />}
       </S.Main>
     </MainLayout>
   );

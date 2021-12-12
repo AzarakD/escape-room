@@ -16,7 +16,7 @@ export const icons = [
 
 export const AppRoute = {
   Home: '/',
-  Quest: '/quest/:id',
+  Quest: '/detailed-quest/:id',
   Contacts: '/contacts',
 };
 

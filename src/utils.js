@@ -6,3 +6,11 @@ export const filterQuestsByGenre = (quests, genre) => {
   }
   return quests.filter((quest) => quest.type === genre);
 };
+
+export const validatePhone = (phone) => {
+  return /^[0-9]{10}$/.test(phone);
+};
+
+export const validatePeopleCount = (peopleCount) => {
+  return peopleCount > 0;
+};
