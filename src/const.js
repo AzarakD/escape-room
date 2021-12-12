@@ -4,6 +4,7 @@ import { ReactComponent as IconHorrors } from 'assets/img/icon-horrors.svg';
 import { ReactComponent as IconMystic } from 'assets/img/icon-mystic.svg';
 import { ReactComponent as IconDetective } from 'assets/img/icon-detective.svg';
 import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
+import MarkerIcon from 'assets/img/icon-blip.svg';
 
 export const icons = [
   IconAllQuests,
@@ -65,6 +66,18 @@ export const ToastMessage = {
   SUCCESS: 'Ваш заказ в обработке',
   PHONE: 'Введите 10-значный номер телефона',
   PEOPLE_COUNT: 'Количество участников должно быть больше 0',
+};
+
+export const Location = {
+  LAT: 59.96838,
+  LNG: 30.31778,
+  ZOOM: 16,
+};
+
+export const IconParams = {
+  URL: MarkerIcon,
+  SIZE: [52, 52],
+  ANCHOR: [26, 52],
 };
 
 export const tabGenres = [
