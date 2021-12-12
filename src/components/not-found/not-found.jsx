@@ -9,7 +9,7 @@ import {
 const NotFoundPage = () => (
   <Main>
     <NotFoundTitle>Ошибка 404. Страница не найдена</NotFoundTitle>
-    <Link to={ AppRoute.Home }>
+    <Link to={ AppRoute.HOME }>
       <NotFoundText>Перейти на главную</NotFoundText>
     </Link>
   </Main>

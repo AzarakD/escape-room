@@ -5,12 +5,14 @@ import {
   useState,
 } from 'react';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { sendBookingForm } from 'store/api-actions';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
 import {
   validatePeopleCount,
   validatePhone,
 } from 'utils';
+import { ToastMessage } from 'const';
 import * as S from './booking-modal.styled';
 
 const BookingModal = ({onExitEvent}) => {
@@ -53,11 +55,11 @@ const BookingModal = ({onExitEvent}) => {
     const isPeopleCountValid = validatePeopleCount(formData.peopleCount);
 
     if (!isPhoneValid) {
-      console.log('telephone');
+      toast.info(ToastMessage.PHONE);
     }
 
     if (!isPeopleCountValid) {
-      console.log('peopleCount');
+      toast.info(ToastMessage.PEOPLE_COUNT);
     }
 
     if (isPhoneValid && isPeopleCountValid) {

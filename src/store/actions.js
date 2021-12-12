@@ -2,21 +2,21 @@ import { createAction } from '@reduxjs/toolkit';
 import { ActionType } from 'const';
 
 export const loadQuests = createAction(
-  ActionType.LoadQuests,
+  ActionType.LOAD_QUESTS,
   (quests) => ({ payload: quests }),
 );
 
 export const loadQuest = createAction(
-  ActionType.LoadQuest,
+  ActionType.LOAD_QUEST,
   (quest) => ({ payload: quest }),
 );
 
 export const changeGenre = createAction(
-  ActionType.ChangeGenre,
+  ActionType.CHANGE_GENRE,
   (genre) => ({ payload: genre }),
 );
 
 export const redirectToRoute = createAction(
-  ActionType.RedirectToRoute,
+  ActionType.REDIRECT,
   (url) => ({ payload: url }),
 );

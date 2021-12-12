@@ -18,7 +18,7 @@ const QuestItem = ({quest}) => {
 
   return (
     <S.QuestItem>
-      <S.QuestItemLink to={AppRoute.Quest.replace(':id', String(id))}>
+      <S.QuestItemLink to={AppRoute.QUEST.replace(':id', String(id))}>
         <S.Quest>
           <S.QuestImage
             src={previewImg}
@@ -37,7 +37,7 @@ const QuestItem = ({quest}) => {
               </S.QuestFeatureItem>
               <S.QuestFeatureItem>
                 <IconPuzzle />
-                {Difficulty[level]}
+                {Difficulty[level.toUpperCase()]}
               </S.QuestFeatureItem>
             </S.QuestFeatures>
           </S.QuestContent>

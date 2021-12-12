@@ -15,24 +15,24 @@ export const icons = [
 ];
 
 export const AppRoute = {
-  Home: '/',
-  Quest: '/detailed-quest/:id',
-  Contacts: '/contacts',
+  HOME: '/',
+  QUEST: '/detailed-quest/:id',
+  CONTACTS: '/contacts',
 };
 
 export const APIRoute = {
-  Quests: '/quests',
-  Quest: '/quests/:id',
-  Orders: '/orders',
-  NotFound: '/404',
+  QUESTS: '/quests',
+  QUEST: '/quests/:id',
+  ORDERS: '/orders',
+  NOT_FOUND: '/404',
 };
 
 export const ActionType = {
-  LoadQuests: 'data/loadQuests',
-  LoadQuest: 'data/loadQuest',
-  ChangeGenre: 'app/changeGenre',
-  FilterQuests: 'app/filterQuests',
-  RedirectToRoute: 'app/redirect',
+  LOAD_QUESTS: 'data/loadQuests',
+  LOAD_QUEST: 'data/loadQuest',
+  CHANGE_GENRE: 'app/changeGenre',
+  FILTER_QUESTS: 'app/filterQuests',
+  REDIRECT: 'app/redirect',
 };
 
 export const PreviewSize = {
@@ -41,23 +41,30 @@ export const PreviewSize = {
 };
 
 export const CoverSize = {
-  WIDTH: "1366",
-  HEIGHT: "768",
+  WIDTH: '1366',
+  HEIGHT: '768',
 };
 
 export const Difficulty = {
-  hard: 'сложный',
-  medium: 'средний',
-  easy: 'простой',
+  HARD: 'сложный',
+  MEDIUM: 'средний',
+  EASY: 'простой',
 };
 
 export const QuestGenre = {
-  All: 'all',
-  Adventures: 'adventures',
-  Horror: 'horror',
-  Mystic: 'mystic',
-  Detective: 'detective',
-  SciFi: 'sci-fi',
+  ALL: 'all',
+  ADVENTURES: 'adventures',
+  HORROR: 'horror',
+  MYSTIC: 'mystic',
+  DETECTIVE: 'detective',
+  SCI_FI: 'sci-fi',
+};
+
+export const ToastMessage = {
+  ERROR: 'Сервис недоступен. Попробуйте позже',
+  SUCCESS: 'Ваш заказ в обработке',
+  PHONE: 'Введите 10-значный номер телефона',
+  PEOPLE_COUNT: 'Количество участников должно быть больше 0',
 };
 
 export const tabGenres = [

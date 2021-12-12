@@ -9,7 +9,7 @@ import { QuestGenre } from 'const';
 const initialState = {
   quests: [],
   isQuestsLoaded: false,
-  currentGenre: QuestGenre.All,
+  currentGenre: QuestGenre.ALL,
   currentQuest: {},
 };
 

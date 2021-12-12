@@ -25,13 +25,13 @@ const App = () => {
     <ThemeProvider theme={appTheme}>
       <S.GlobalStyle />
       <Switch>
-        <Route exact path={ AppRoute.Quest }>
+        <Route exact path={ AppRoute.QUEST }>
           <DetailedQuest />
         </Route>
-        <Route exact path={ AppRoute.Contacts }>
+        <Route exact path={ AppRoute.CONTACTS }>
           <Contacts />
         </Route>
-        <Route exact path={ AppRoute.Home }>
+        <Route exact path={ AppRoute.HOME }>
           <Home />
         </Route>
         <Route>
